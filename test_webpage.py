@@ -6,7 +6,6 @@ def load_html():
     with open("index.html", encoding="utf-8") as f:
         return BeautifulSoup(f, "html.parser")
 
-# 1. Alapvető HTML-struktúra ellenőrzése
 def test_html_structure(load_html):
     assert load_html.html is not None, "Az oldalnak lennie kell egy <html> elemnek."
     assert load_html.head is not None, "Az oldalnak lennie kell egy <head> elemnek."
@@ -43,14 +42,10 @@ def test_highlighted_section(load_html):
 def test_source_link(load_html):
     link = load_html.find("a", href="https://hu.wikipedia.org/wiki/Alaszka")
     assert link is not None, "Hiányzik a Wikipédia forráshivatkozás."
-    assert link["target"] == "_blank", "A linknek új lapon kellene megnyílnia."
+    assert link.text.strip() == "hu.wikipedia.org", "A link szövege nem megfelelő."
 
-def test_meta_viewport(load_html):
-    meta = load_html.find("meta", {"name": "viewport"})
-    assert meta is not None, "Hiányzik a viewport meta tag."
-    assert "width=device-width" in meta["content"], "A viewport beállítása nem megfelelő."
-
-def test_no_empty_text(load_html):
-    text_content = load_html.get_text(strip=True)
-    assert len(text_content) > 50, "Az oldal tartalma túl rövid vagy üres."
+def test_background_image():
+    with open("style.css", encoding="utf-8") as f:
+        css_content = f.read()
+    assert "state_seal_of_alaska.png" in css_content, "A háttérkép nincs megfelelően beállítva."
 
