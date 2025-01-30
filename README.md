@@ -12,3 +12,5 @@ Egyszerűen nyisd meg az `index.html` fájlt egy böngészőben.
 
 ## Tesztelés
 A teszteléshez a `pytest` használható. Lásd `test_webpage.py`.
+
+![Így kell kinéznie](feladat_minta_0601.png)
