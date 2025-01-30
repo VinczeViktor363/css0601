@@ -14,3 +14,4 @@ Egyszerűen nyisd meg az `index.html` fájlt egy böngészőben.
 A teszteléshez a `pytest` használható. Lásd `test_webpage.py`.
 
 ![Így kell kinéznie](feladat_minta_0601.png)
+![Így kell kinéznie](https://szit.hu/lib/exe/fetch.php?cache=&media=oktatas:web:feladatok:state_seal_of_alaska.png)
